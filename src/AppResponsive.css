@@ -1,0 +1,27 @@
+
+
+/* Large screens (Desktops) */
+@media (max-width: 1200px) {
+    
+  }
+  /* Tablets */
+  @media (max-width: 768px) {
+    .searchbox{
+        opacity: 0;
+        visibility: hidden;
+    }
+  }
+  
+  /* Mobile */
+  @media (max-width: 480px) {
+    .header{
+        display: flex;
+        flex-direction: column;
+    }
+    .hotash{
+      opacity: 0;
+      visibility: hidden;
+      display: none;
+    }
+  }
+  

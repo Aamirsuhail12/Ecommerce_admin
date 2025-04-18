@@ -1,66 +1,99 @@
 
-import './App.css';
-import Header from './components/header';
-import { createContext, useEffect, useState } from 'react';
-import axios from 'axios';
-import Home from './pages/home';
 
-import Footer from './components/Footer';
-import Footerlist from './components/Footerlist';
-import Listing from './components/Listing';
-import ProductDetails from './pages/ProductDetails';
-import YourCarts from './components/YourCarts';
-import SignIn from './pages/SignIn';
+import './App.css';
+import './AppResponsive.css';
+import React from 'react';
+import Header from './components/Header';
+import Dashboard from './components/Dashboard';
+import { createContext, useEffect, useState } from 'react';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
+import ProductList from './components/ProductList';
+import ProductEdit from './pages/ProductEdit';
+import ProductView from './pages/ProductView';
+import ProductUpload from './pages/ProductUpload';
 import { Route, Routes } from 'react-router';
-import SignUp from './pages/SignUp';
+import Addcategory from './pages/AddCategory';
+import GetCategory from './pages/GetCategory';
+import Snackbar from '@mui/material/Snackbar';
+import Alert from '@mui/material/Alert';
+import LoadingBar from "react-top-loading-bar";
+
 
 const Mycontext = createContext();
 function App() {
 
-  const [countryList, setcountryList] = useState();
-  const [isheaderfooterShow, setisheaderfooterShow] = useState(true);
+  const [toggle, settoggle] = useState(false);
+  const [light, setlight] = useState(false);
+  const [headershow, setheadershow] = useState(true);
+  const [progress, setProgress] = useState(0);
 
-  useEffect(() => {
-    fetchCountryList();
-  }, [])
+  const [alertBox, setalertBox] = React.useState({
+    open: false,
+    color: '',
+    msg: ''
+  });
 
-  async function fetchCountryList() {
-    try {
-      const response = await axios.get('http://localhost:5000/coutrylist');
-      setcountryList(Object.values(response.data.data));
-      // console.log(Object.values(response.data.data))
-    } catch (error) {
-      console.log(error);
-    }
-  }
   const values = {
-    countryList,
-    isheaderfooterShow,
-    setisheaderfooterShow
+    toggle,
+    settoggle,
+    light,
+    setlight,
+    headershow,
+    setheadershow,
+    alertBox,
+    setalertBox,
+    setProgress
   }
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setalertBox({
+      open: false,
+      msg: ''
+    })
+  };
+
   return (
     <Mycontext.Provider value={values}>
-      {
-        isheaderfooterShow === true && <Header />
-      }
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/cat' element={<Listing/>}/>
-        <Route path='/product' element={<ProductDetails/>}/>
-        <Route path='/cart' element={<YourCarts/>} />
-        <Route path='/signin' element={<SignIn />} />
-        <Route path='/signup' element={<SignUp/>}/>
-      </Routes>
-      {
-        isheaderfooterShow === true && <Footerlist />
-      }
-      {
-        isheaderfooterShow === true && <Footer />
-      }
+      <>
+        <LoadingBar
+          color="#f11946"
+          progress={progress}
+          onLoaderFinished={() => setProgress(0)}
+          style={{ height: '4px' }}
+        />
+        <Snackbar open={alertBox.open} autoHideDuration={6000} onClose={handleClose}>
+          <Alert
+            onClose={handleClose}
+            // severity="success"
+            severity={alertBox.color}
+            variant="filled"
+            sx={{ width: '100%' }}
+          >
+            {alertBox.msg}
+          </Alert>
+        </Snackbar>
+
+        {headershow && <Header />}
+        <Routes>
+          <Route path='/' element={<Dashboard />} />
+          <Route path='/product' element={<ProductList />} />
+          <Route path='/product/view' element={<ProductView />} />
+          <Route path='/product/upload' element={<ProductUpload />} />
+          <Route path='/product/edit/:id' element={<ProductEdit />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/signup' element={<Signup />} />
+          <Route path='/category/add' element={<Addcategory />} />
+          <Route path='/category/list' element={<GetCategory />} />
+        </Routes>
+      </>
     </Mycontext.Provider>
-  );
+  )
 }
 
 export default App;
-
 export { Mycontext };

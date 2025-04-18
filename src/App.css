@@ -1,359 +1,94 @@
-
-@import url('https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css');
-@import url('https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css');
-
-body{
-  margin: 0;
-  padding: 0;
+* {
+    margin: 0;
+    padding: 0;
 }
 
-.container{
-  width: 100%;
+.btn {
+    height: 40px !important;
+    width: 40px !important;
+    border-radius: 50% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    min-width: 40px !important;
+    background-color: #EFF6FF !important;
+    transition: 0.3s ease;
+    /* for smooth transition */
 }
 
-.header{
-  width: 100%;
-  background-color: #007BFF;
+.btn svg {
+    color: black;
+    font-size: 20px;
 }
 
-.search Button svg{
-  font-size: 30px;
-  color: black !important;
+.btn:hover {
+    background-color: #BBE0F4 !important;
 }
 
-.user Button svg{
-  font-size : 30px;
-  color: black;
+::-webkit-scrollbar {
+    width: 3px !important;
+    /* Width for vertical scrollbar */
+    height: 10px !important;
+    /* Height for horizontal scrollbar */
+    margin-left: 50px !important;
+    padding-left: 50px !important;
 }
 
-.cart {
-  position: relative;
-}
-
-.body_{
-  max-width: 1200px;
-  width: 90%;
-  margin: auto;
-}
-
-.nav_bar Button{
-  color: black !important;
-  font-weight: 700;
-}
-
-.nav_bar Button:hover{
-  background-color: #ceecf5;
-}
-
-.nav_bar a Button:hover{
-  color: #00BFFF !important;
-}
-.locationModel{
-  position: relative;
-}
-.locationModel .MuiPaper-root{
-  padding: 25px;
-}
-.locationModel .MuiPaper-root h1{
-  font-size: large;
-  font-weight: bold;
-}
-
-.countrylist{
-  margin-top: 15px;
-  max-height: 400px;
-  overflow-y: scroll;
-  overflow-x: hidden;
-}
-.countrylist Button{
-  color: black;
-  width: 100%;
-  justify-content: start;
-  padding: 10px;
-}
-
-.countrylist Button:hover{
-  background-color: rgb(209, 208, 208);
-}
-
-::-webkit-scrollbar{
-  width: 8px;
-}
-::-webkit-scrollbar-thumb{
-  background-color: rgb(198, 196, 196);
-  height: 150px;
-}
-::-webkit-scrollbar-track{
-  background-color: transparent;
-}
-
-.countrylist li Button .active{
-  background-color: #252323 !important;
-}
-
-.food .nav_bar .dropdown {
-    display: flex;
-    justify-content: start;
+::-webkit-scrollbar-thumb {
     opacity: 0;
-    display: none;
 }
 
-.food .nav_bar li:hover .dropdown{
-  opacity: 1;
-  display: inherit;
-  z-index: 100;
-  background-color: white;
-  color: black;
-}
-.food .nav_bar .dropdown a{
-  color: black;
-  text-decoration: none;
+.sizebar:hover ::-webkit-scrollbar-thumb {
+    opacity: 1;
+    background-color: blue;
 }
 
-.food .nav_bar .dropdown a Button{
-  width: 100%;
-  justify-content: start;
-  
+.list:hover {
+    background-color: rgb(225, 224, 224);
 }
 
-.food .nav_bar .dropdown a Button:hover{
-  background-color: rgb(226, 223, 223);
-  color: black !important;
-}
-.food .nav_bar .dropdown a .custom-button{
-  font-weight: 300;
-  font-size: small;
+.body_ {
+    width: 100%;
 }
 
-.food .ct_list{
-  display: none;
-  position: relative;
-  width : 250px;
-  background-color: white;
-  color: black;
-}
-.food .open{
-  display: inherit;
-  z-index: 200;
-  position: absolute;
-}
-.food .ct_list li a .btn{
-  font-weight: bold;
-  color: black;
-  width: 100%;
-  justify-content: start;
+.active {
+    background-color: rgb(225, 224, 224);
+    transition: all 0.3 ease-in-out;
 }
 
-.food .ct_list li a .btn:hover{
-  background-color: rgb(209, 209, 209);
-
+table {
+    overflow: auto !important;
+    max-width: 100%;
+    white-space: nowrap;
 }
 
-.home_{
-  margin: auto;
-  overflow: hidden;
+.ptr .header {
+    backdrop-filter: blur(5px) !important;
+    background: rgba(255, 255, 255, 0.8) !important;
 }
 
-.food{
-  margin-bottom: 10px;
-}
-.home_banner {
-  position: relative;
-}
-.home_banner .slick-arrow{
-    position: absolute;
-    top : 45%;
-    background-color: black;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    z-index: 100;
-}
-.home_banner .slick-arrow.slick-prev{
-  left : 25px !important;
+.sidebar.active {
+    visibility: hidden !important;
+    opacity: 0 !important;
+    width: 0px !important;
+    transition: all 0.5s ease-in-out;
 }
 
-.home_banner .slick-arrow.slick-next{
-  right : 25px !important;
+.main-content.active {
+    width: 100% !important;
+    margin-left: 0px !important;
+    transition: all 0.5s ease-in-out !important;
 }
 
-.food .ct_list .submenu{
-  text-decoration: none;
-}
-.food .ct_list .submenu svg{
-  color: black;
-}
-
-.food .ct_list .sub{
-  position: absolute;
-  left: 100%;
-  top: 0;
-  display: flex;
-  flex-direction: column;
-  background-color: white;
-  color: black;
-  width: 200px;
-  height: 100%;
-  border-left: 1px solid black;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 600ms ease-in-out;
-}
-
-.food .ct_list li:hover .sub{
-  opacity: 1;
-  visibility: visible;
-}
-
-.banner{
-  height: 100%;
-  border-radius: 10px;
-  width: 300px;
+.sidebar.notactive {
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 20% !important;
+    transition: all 0.5s ease-in-out !important;
 }
 
 
-.cart .star-icon{
-  color: rgb(246, 246, 65) !important;
-}
-
-.cart_ svg{
-  padding: 5px !important;
-  background-color:#fecaca ;
-  border-radius: 50%;
-  height: 40px;
-  width: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.cart1_ svg{
-  padding: 5px !important;
-  border-radius: 50%;
-  height: 40px;
-  width: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.cart1_ .fullscr-icon{
-  color: black !important;
-  font-size: 40px;
-  font-weight: bold;
-}
-
-.cart1_ .heart-icon{
-  font-size: x-large ;
-  color: black !important;
-  font-weight: bold;
-}
-
-.cart1_:hover{
-  background-color: rgb(85, 85, 246);
-}
-.cart1_:hover svg{
-  color: white !important;
-}
-
-.products .last-card{
-  border-right: 1px solid black;
-}
-
-.cart .product_img{
-  z-index: 10;
-}
-
-.cart .product_img:hover{
-  z-index: 10;
-  transform: scale(1.1);
-  transition: all 0.3s ease-in-out;
-}
-
-.product_dialog{
-  position: relative;
-  padding: 50px;
-}
-.product_model .MuiPaper-elevation{
-  width: 1000px;
-  max-width: 1000px;
-}
-
-.slider_item{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.dot_container{
-  position: absolute;
-  top: 10px;
-}
-
-.css-imrjgg-MuiButtonBase-root-MuiCheckbox-root{
-  padding: 2px 10px !important;
-}
-.btn_ svg{
-color: black;
-font-size: 25px;
-opacity: 0.5;
-}
-.btn{
-  color: black;
-}
-
-.one{
-  width: 100%;
-  border : 1px solid black;
-  display: flex;
-  flex-direction: row;
-  gap: 100px;
-  opacity: 1;
-}
-
-.two{
-  width: 50%;
-  border : 1px solid black;
-}
-
-.two .product_img{
-  width: 200px;
-  height: 200px;
-}
-.three{
-  border: 1px solid black;
-}
-.four{
-  border: 1px solid black;
-  width: 25%;
-}
-
-.four .product_img{
-  width: 70px;
-  height: 70px;
-}
-
-.sticky{
-  position: sticky;
-  top: 10px;
-}
-
-.act svg{
-  color: black;
-  font-size: 25px;
-  opacity: 1;
-  }
-
-.active{
-  background-color: blue;
-  color: white;
-}
-
-.info .active{
-  background-color: blue;
-  color: white !important;
-}
-
-button {
-  text-transform: none !important;
+.main-content.notactive {
+    width: 80% !important;
+    margin-left: 20% !important;
+    transition: all 0.5s ease-in-out !important;
 }
