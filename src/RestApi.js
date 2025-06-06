@@ -50,7 +50,7 @@ export const get = async (url) => {
 }
 
 export const update = async (url, data) => {
-    if (data.name === '' || data.images.length === 0 || data.color === '') {
+    if (data.category === '' || data.subcategory === '') {
         throw 'error';
     }
     try {

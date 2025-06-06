@@ -36,8 +36,8 @@ const Header = () => {
             <div className="flex header items-center h-[60px]">
                 <div className="md:w-2/12 hotash max-w-2/12 flex justify-center items-center font-bold text-[25px]">
                     <div className="flex justify-center items-center">
-                        <img className="h-10" src="https://cdn-icons-png.flaticon.com/512/8508/8508168.png" />
-                        <span className="ml-2">HOTASH</span>
+                        <img className="h-10" src="https://static.vecteezy.com/system/resources/previews/016/471/452/original/abstract-modern-ecommerce-logo-ecommerce-logo-design-shop-logo-design-template-creative-ecommerce-logo-vector.jpg" />
+                        <span className="ml-2">ECOMMERCE</span>
                     </div>
                 </div>
                 <div className="md:w-3/12 max-w-3/12 searchbox flex justify-end items-center gap-5">

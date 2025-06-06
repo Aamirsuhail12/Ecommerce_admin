@@ -90,6 +90,8 @@ const Sidebar = () => {
                         <div className="flex flex-col gap-3 border-l border-gray-800 px-4 py-4 mx-8 opacity-[0.7]">
                             <Link to="/category/list"><span className="hover:text-blue-800 hover:underline">Category List</span></Link>
                             <Link to="/category/add"><span className="hover:text-blue-800 hover:underline">Add Category</span></Link>
+                            <Link to="/subcategory/add"><span className="hover:text-blue-800 hover:underline">Add Sub Category</span></Link>
+                            <Link to="/subcategory/list"><span className="hover:text-blue-800 hover:underline">Sub Category List</span></Link>
                         </div>
                     }
                 </li>

@@ -18,8 +18,10 @@ import GetCategory from './pages/GetCategory';
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
 import LoadingBar from "react-top-loading-bar";
-
-
+import AddSubcategory from './pages/AddSubCategory';
+import GetSubCategory from './pages/GetSubCategory'
+import EditCategory from './pages/EditCategory';
+import EditSubCategory from './pages/EditSubCategory';
 const Mycontext = createContext();
 function App() {
 
@@ -89,6 +91,10 @@ function App() {
           <Route path='/signup' element={<Signup />} />
           <Route path='/category/add' element={<Addcategory />} />
           <Route path='/category/list' element={<GetCategory />} />
+          <Route path='/category/edit/:id' element={<EditCategory />} />
+          <Route path='/subcategory/add' element={<AddSubcategory />} />
+          <Route path='/subcategory/list' element={<GetSubCategory />} />
+          <Route path='/subcategory/edit/:id' element={<EditSubCategory />} />
         </Routes>
       </>
     </Mycontext.Provider>
